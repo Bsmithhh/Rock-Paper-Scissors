@@ -1,0 +1,6 @@
+Write a function that randomizes Rock paper or scissors from a computer(random number from 1-3, each one representing a choice)(getComputerChoice)
+Receive user input delcaring rock paper or scissors(getHumanChoice)
+write a function that compares the computer and user input(if statements)
+declare variables for keeping score(humanScore and ComputerScore)
+write a function that simulates a round(playRound)
+write a function with a for loop that plays 5 rounds(playGame)

@@ -2,6 +2,13 @@ let humanScore = 0;
 let computerScore = 0;
 let computerChoice;
 let humanChoice;
+let rock = document.querySelector("#rock");
+let paper = document.querySelector("#paper");
+let scissors = document.querySelector("#scissors");
+let win = document.querySelector(".Winning-Container")
+let heading = document.createElement("h3");
+let scoreKeeper = document.createElement("h4")
+
 
 function getComputerChoice(){
     let number;
@@ -29,32 +36,48 @@ function getHumanChoice(){
 
 function determineWinner() {
     if (humanChoice === computerChoice) {
-        console.log("It's a tie!");
+        heading.textContent = "It's a tie!";
+        win.appendChild(heading);
     } else if (
         (humanChoice === "Rock" && computerChoice === "Scissors") ||
         (humanChoice === "Paper" && computerChoice === "Rock") ||
         (humanChoice === "Scissors" && computerChoice === "Paper")
     ) {
-        console.log("You win!");
+        heading.textContent = "You win!";
+        win.appendChild(heading);
         humanScore++;
     } else {
-        console.log("Computer wins!");
+        heading.textContent = "Computer wins!";
+        win.appendChild(heading);
         computerScore++;
     }
 
-    console.log(`Score — You: ${humanScore}, Computer: ${computerScore}`);
+    scoreKeeper.textContent = `Score - You: ${humanScore}, Computer: ${computerScore}`;
+    win.appendChild(scoreKeeper);
 }
 
-function playRound(){
-    getComputerChoice();
-    getHumanChoice();
-    determineWinner();
+function playRound(choice){
+   humanChoice = choice;
+   getComputerChoice();
+   determineWinner();
 }
 
-function playGame(){
+/*function playGame(){
     for(let i = 0; i < 6; i++){
         playRound();
     }
 }
 
-playGame();
+playGame(); */
+
+rock.addEventListener("click", function(){
+    playRound("Rock");
+});
+
+paper.addEventListener("click", function(){
+    playRound("Paper");
+});
+
+scissors.addEventListener("click", function(){
+    playRound("Scissors");
+});
